@@ -6,8 +6,7 @@ import { InstantSearch, SearchBox, Hits, Highlight } from 'react-instantsearch-d
 
 const Hit = ({hit}) =>
   <div className="hit">
-    <div className="hitImage">
-      <img src={hit.photo_urls[0]}/>
+    <div className="hitImage" style={{backgroundImage: "url(" + hit.photo_urls[0] + ")"}}>
     </div>
       <div className = "hitName">
         <Highlight attribute = "name" hit = {hit}/>
