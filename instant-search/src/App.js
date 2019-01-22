@@ -8,8 +8,8 @@ const Hit = ({hit}) =>
   <div className="hit">
     <div className="hitImage" style={{backgroundImage: "url(" + hit.photo_urls[0] + ")"}}>
     </div>
-      <div className = "hitName">
-        <Highlight attribute = "name" hit = {hit}/>
+      <div className="hitName">
+        <Highlight attribute="title" hit={hit}/>
       </div>
   </div>
 
