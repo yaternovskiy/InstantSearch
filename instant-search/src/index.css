@@ -6,11 +6,16 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  --padding-default: 10px;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+header {
+  padding: var(--padding-default);
 }
 
 .ais-Hits-item {
@@ -20,10 +25,25 @@ code {
 }
 
 .hit {
+  position: relative;
   flex: 1 0 auto;
 }
 
 .hitImage {
   height: 100%;
   background-position: top center;
+}
+
+.hitName {
+  position: absolute;
+  bottom: calc(var(--padding-default)/2);
+  transform: translateX(-50%);
+  left: 50%;
+
+  padding: calc(var(--padding-default)/2);
+  background-color: rgba(0,0,0,0.4);
+  color: white;
+
+  border-radius: 5px;
+  box-shadow: 0px 0px 11px rgba(0,0,0,0.4);
 }
