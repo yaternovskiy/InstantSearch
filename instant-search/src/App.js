@@ -2,7 +2,28 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-import { InstantSearch, SearchBox, Hits, Highlight } from 'react-instantsearch-dom';
+import { InstantSearch,
+         SearchBox,
+         Hits, 
+         Highlight,
+         connectAutoComplete } from 'react-instantsearch-dom';
+
+const Autocomplete = ({ hits, currentRefinement, refine }) => (
+  <ul>
+    <li>
+      <input
+        type="search"
+        value={currentRefinement}
+        onChange={event => refine(event.currentTarget.value)}
+      />
+    </li>
+    {hits.map(hit => (
+      <li key={hit.objectID}>{hit.title}</li>
+    ))}
+  </ul>
+);
+
+const CustomAutocomplete = connectAutoComplete(Autocomplete);
 
 const Hit = ({hit}) =>
   <div className="hit">
@@ -28,7 +49,7 @@ class App extends Component {
       >
           <header>
             Instant Search
-            <SearchBox translations = {{placeholder:'Search Box'}}/>
+            <CustomAutocomplete translations = {{placeholder:'Search Box'}}/>
           </header>
          
           <main>
